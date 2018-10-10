@@ -1,0 +1,10 @@
+
+folder-hook 'account.com.outlook.ivan.pidov' 'source ~/.mutt/account.com.outlook.ivan.pidov'
+
+source ~/.config/theme/dracula.muttrc
+
+# Default account
+source ~/.mutt/account.com.outlook.ivan.pidov
+set header_cache="~/.mutt/header_cache"
+# Fetch mail shortcut
+bind index G imap-fetch-mail
