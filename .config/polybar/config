@@ -1,4 +1,4 @@
-;-------------------------------------------------------------------------------
+ll ;-------------------------------------------------------------------------------
 ;	V A R I A B L E S
 ;-------------------------------------------------------------------------------
 
@@ -6,11 +6,12 @@
 background = #ffd700
 background-alt = #2b2b2b
 
-foreground = #2b2b2bs
+foreground = #fefefe
 foreground-alt = #ee3333
+error = #ee3333
 
 yellow = #ffd700
-trans = 
+trans = #50000000
 white = #fff
 grey = #1b1b1b
 blue = #4f97d7
@@ -25,260 +26,87 @@ red = #d70000
 [bar/topbar]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 16
+height = 22
 radius = 1.0
-fixed-center = true
-
 background = ${colors.trans}
 foreground = ${colors.foreground}
-
-border-size = 0
-border-color = #131313
-
+separator = " "
+line-size = 2
 font-0 = FiraCode:pixelsize=12;2
 font-1 = FiraCode:pixelsize=31;2
 font-2 = FontAwesome:pixelsize=10;3
 
-modules-left = i3index title rArrowYellowTrans i3
+modules-left = i3
 modules-center = date
-modules-right = arrow8 wlan lArrowGreyYellow xkeyboard lArrowYellowGrey filesystem memory cpu lArrowGreenYellow battery lArrowGreyGreen
+modules-right = wlan xkeyboard filesystem memory cpu battery 
 
 tray-position = right
 tray-background = ${colors.grey}
 tray-padding = 8
 
 ;-------------------------------------------------------------------------------
-;	D E C O R A T I O N S
-;-------------------------------------------------------------------------------
-
-
-[module/arrow]
-; background to trans
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.purple}
-content-background = ${colors.trans}
-
-[module/lArrowGreyellow]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.grey}
-content-background = ${colors.yellow}
-
-[module/lArrowGreenYellow]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.green}
-content-background = ${colors.yellow}
-
-[module/lArrowPurpleYellow]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.purple}
-content-background = ${colors.yellow}
-
-[module/lArrowGreenGrey]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.green}
-content-background = ${colors.grey}
-
-[module/lArrowYellowGreen]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.yellow}
-content-background = ${colors.green}
-
-[module/lArrowGreyGreen]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.grey}
-content-background = ${colors.green}
-
-[module/rArrowYellowTrans]
-; background to trans
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.yellow}
-content-background = ${colors.trans}
-
-[module/arrow1]
-; grey to Blue
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.blue}
-content-background = ${colors.grey}
-
-[module/arrow2]
-; Blue to Purple
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.purple}
-content-background = ${colors.blue}
-
-[module/arrow5]
-; green to grey
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.grey}
-content-background = ${colors.green}
-
-[module/lArrowYellowGrey]
-; bg to grey
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.yellow}
-content-background = ${colors.grey}
-
-[module/lArrowGreyYellow]
-; bg to grey
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.grey}
-content-background = ${colors.yellow}
-
-[module/arrow8]
-; grey to bg
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.background}
-content-background = ${colors.trans}
-
-;-------------------------------------------------------------------------------
 ;	M O D U L E S
 ;-------------------------------------------------------------------------------
-[module/title]
-type = internal/xwindow
-format-background = ${colors.yellow}
-format-foreground = ${colors.grey}
-
-; Available tokens:
-;   %title%
-; Default: %title%
-label-maxlen = 30
-
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
 blacklist-1 = scroll lock
-
 format = <label-layout><label-indicator>
-
-format-prefix = " "
 format-prefix-font = 1
-format-prefix-foreground = ${colors.white}
-format-prefix-background = ${colors.grey}
-
 label-layout = %layout%
 label-layout-font = 1
-label-layout-foreground = ${colors.white}
-label-layout-background = ${colors.grey}
-
 label-indicator = " %name% "
-;label-indicator-padding = 2
-
-;label-indicator-padding = 2
-;label-indicator-margin = 1
-label-indicator-background = ${colors.grey}
 label-indicator-foreground = ${colors.red}
-;label-indicator-underline = ${colors.red}
 
 [module/filesystem]
 type = internal/fs
 interval = 25
-
 mount-0 = /
-
-label-mounted = "  %free% /"
-label-mounted-foreground = ${colors.grey}
-label-mounted-background = ${colors.yellow}
+label-mounted = " %free%"
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
-[module/i3index]
-type = internal/i3
-format = <label-state>
-
-label-focused = " %name% "
-label-focused-foreground = ${colors.grey}
-label-focused-background = ${colors.yellow}
-
-label-unfocused =
-label-urgent =
+label-unmounted-foreground = ${colors.error}
+format-mounted-overline = ${colors.foreground}
 
 [module/i3]
 type = internal/i3
 format = <label-state><label-mode>
-
 index-sort = false
 enable-click = true
 enable-scroll = false
-
 ws-icon-0 = 0;*
-
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
-
 label-mode = " %mode% "
 label-mode-foreground = ${colors.red}
-label-mode-background = ${colors.trans}
 
 ; focused = Active workspace on focused monitor
 label-focused-foreground = ${colors.yellow}
-label-focused-background = ${colors.trans}
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused-foreground = ${colors.white}
-label-unfocused-background = ${colors.trans}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = " ● "
-label-urgent-foreground = ${colors.red}
-label-urgent-background = ${colors.trans}
+label-urgent-foreground = ${colors.error}
 
 [module/cpu]
 type = internal/cpu
-interval = 2
-format-prefix = " /  "
-format-prefix-foreground = ${colors.grey}
-format-prefix-background = ${colors.yellow}
+interval = 5
+format-prefix = " "
+format-overline = ${colors.foreground}
+format = <label>
 label = %percentage%%
-label-foreground = ${colors.grey}
-label-background = ${colors.yellow}
 
 [module/memory]
 type = internal/memory
-interval = 2
-format-prefix = " RAM "
-format-prefix-foreground = ${colors.grey}
-format-prefix-background = ${colors.yellow}
+interval = 5
+format-prefix = "RAM "
+format-overline = ${colors.foreground}
 label = %percentage_used%%
-label-foreground = ${colors.grey}
-label-background = ${colors.yellow}
 
 [module/wlan]
 type = internal/network
 interface = wlp3s0
 interval = 3.0
-
-label-connected-foreground = ${colors.grey}
-label-connected-background = ${colors.yellow}
-label-connected = " %local_ip%"
-
+label-connected = %local_ip% %downspeed:2%
+format-connected-overline = ${colors.foreground}
 format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
@@ -298,7 +126,7 @@ interface =
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+#format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -345,59 +173,42 @@ ramp-volume-3-background = ${colors.yellow}
 
 
 [module/battery]
-interval = 5
+interval = 0
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 100
-
+full-at = 99
 format-charging = <animation-charging> <label-charging>
-format-charging-foreground = ${colors.grey}
-format-charging-background = ${colors.green}
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-foreground = ${colors.grey}
-format-discharging-background = ${colors.green}
+format-charging-foreground = ${colors.green}
+format-charging-overline = ${colors.green}
+format-discharging = <label-discharging>
+format-discharging-overline = ${colors.foreground}
 format-full = <label-full>
-format-full-foreground = ${colors.grey}
-format-full-background = ${colors.green}
-
-label-charging = " %percentage%%"
-label-discharging = " %percentage%%"
-label-discharging-foreground = ${colors.grey}
-label-full = "BAT %percentage%%"
-
-ramp-capacity-0 =
-ramp-capacity-0-foreground = ${colors.red}
-ramp-capacity-1 =
-ramp-capacity-1-foreground = ${colors.red}
-ramp-capacity-2 =
-ramp-capacity-3 =
-ramp-capacity-4 =
-animation-charging-0 =
-animation-charging-1 =
-animation-charging-2 =
-animation-charging-3 =
-animation-charging-4 = 
+format-full-foreground = ${colors.green}
+label-charging = "%percentage%% "
+label-discharging = " %percentage%% "
+label-full = " %percentage%% "
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
 animation-charging-framerate = 750
-
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
-
 format = <ramp> <label>
 format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
-
 label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
+#ramp-0 = 
 ramp-1 = 
-ramp-2 = 
+#ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
@@ -407,7 +218,7 @@ format-spacing = 1
 
 label-open = 
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+#label-close =  cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
