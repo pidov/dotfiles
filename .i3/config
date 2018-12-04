@@ -51,6 +51,8 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 bindsym $mod+Ctrl+b exec konsole -e 'bmenu'
 bindsym $mod+F2 exec firefox 
 bindsym $mod+F3 exec pcmanfm
+# Launch citrix workspace
+bindsym $mod+F4 exec google-chrome-stable --app-id=haiffjcadagjlijoggckpgfnoeiflnem
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec konsole -e 'mocp'
