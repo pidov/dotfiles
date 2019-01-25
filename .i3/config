@@ -50,7 +50,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 
 # Start Applications
 bindsym $mod+Ctrl+b exec konsole -e 'bmenu'
-bindsym $mod+F2 exec firefox 
+bindsym $mod+F2 exec ${BROWSER} 
 bindsym $mod+F3 exec pcmanfm
 # Launch citrix workspace
 bindsym $mod+F4 exec google-chrome-stable --app-id=haiffjcadagjlijoggckpgfnoeiflnem
@@ -381,8 +381,8 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 15
-gaps outer 10
+gaps inner 15 
+gaps outer 0 
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
