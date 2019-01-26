@@ -23,5 +23,3 @@ set sort_aux=reverse-date-received
 set editor = "vim"
 
 set date_format="%d-%m-%y %T"
-
-auto_view text/html 

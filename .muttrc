@@ -8,3 +8,6 @@ set header_cache="~/.mutt/header_cache"
 # Fetch mail shortcut
 bind index G imap-fetch-mail
 set new_mail_command="notify-send 'New email' '%n new messages, %u unread.' &"
+auto_view text/html
+alternative_order text/enriched text/plain text/html text
+
