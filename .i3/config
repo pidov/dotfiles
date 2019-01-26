@@ -1,4 +1,3 @@
-
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -50,12 +49,14 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 
 # Start Applications
 bindsym $mod+Ctrl+b exec konsole -e 'bmenu'
-bindsym $mod+F2 exec ${BROWSER} 
-bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F2 exec qutebrowser 
+#bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F3 exec konsole -e 'ranger'
+bindsym $mod+Shift+F3 exec gksu pcmanfm
+
 # Launch citrix workspace
 bindsym $mod+F4 exec google-chrome-stable --app-id=haiffjcadagjlijoggckpgfnoeiflnem
-# bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec gksu pcmanfm
+
 bindsym $mod+F5 exec konsole -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
