@@ -8,3 +8,4 @@ c.url.searchengines = {
 }
 c.url.default_page = "https://startpage.com/"
 c.url.start_pages = "https://startpage.com/"
+c.content.autoplay = False
