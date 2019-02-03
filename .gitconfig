@@ -1,3 +1,6 @@
 [user]
 	name = Ivan Pidov
 	email = ivan.pidov@gmail.com
+[alias]
+	co = checkout
+	ci = commit
