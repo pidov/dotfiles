@@ -1,4 +1,4 @@
-ll ;-------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------
 ;	V A R I A B L E S
 ;-------------------------------------------------------------------------------
 
@@ -11,7 +11,7 @@ foreground-alt = #ee3333
 error = #ee3333
 
 yellow = #ffd700
-trans = #50000000
+trans = #000000
 white = #fff
 grey = #1b1b1b
 blue = #4f97d7
@@ -32,16 +32,16 @@ background = ${colors.trans}
 foreground = ${colors.foreground}
 separator = " "
 line-size = 2
-font-0 = FiraCode:pixelsize=12;2
-font-1 = FiraCode:pixelsize=31;2
+font-0 = Terminus:pixelsize=11;3
+font-1 = Terminus:pixelsize=31;2
 font-2 = FontAwesome:pixelsize=10;3
 
 modules-left = i3
 modules-center = date
-modules-right = wlan xkeyboard filesystem memory cpu battery 
+modules-right = wlan xkeyboard filesystem memory cpu battery
 
 tray-position = right
-tray-background = ${colors.grey}
+tray-background = ${colors.trans}
 tray-padding = 8
 
 ;-------------------------------------------------------------------------------
@@ -105,7 +105,7 @@ label = %percentage_used%%
 type = internal/network
 interface = wlp3s0
 interval = 3.0
-label-connected = %local_ip% %downspeed:2%
+label-connected = %local_ip%
 format-connected-overline = ${colors.foreground}
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -152,24 +152,18 @@ mapped = true
 format-volume = <ramp-volume><label-volume>
 
 label-volume = %percentage%%
-label-volume-foreground = ${colors.grey}
-label-volume-background = ${colors.yellow}
+label-volume-foreground = ${colors.white}
 label-muted = "  MUTED"
 label-muted-foreground = ${colors.red}
-label-muted-background = ${colors.yellow}
 
 ramp-volume-0 = "  "
-ramp-volume-0-foreground = ${colors.grey}
-ramp-volume-0-background = ${colors.yellow}
+ramp-volume-0-foreground = ${colors.white}
 ramp-volume-1 = "  "
-ramp-volume-1-foreground = ${colors.grey}
-ramp-volume-1-background = ${colors.yellow}
+ramp-volume-1-foreground = ${colors.white}
 ramp-volume-2 = "  "
-ramp-volume-2-foreground = ${colors.grey}
-ramp-volume-2-background = ${colors.yellow}
+ramp-volume-2-foreground = ${colors.white}
 ramp-volume-3 = "  "
-ramp-volume-3-foreground = ${colors.grey}
-ramp-volume-3-background = ${colors.yellow}
+ramp-volume-3-foreground = ${colors.white}
 
 
 [module/battery]
