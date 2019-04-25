@@ -5,9 +5,6 @@ call plug#begin('~/.vim/plugged')
 " Base
 "Plug 'scrooloose/nerdtree'
 
-" Theme
-Plug 'dracula/vim', { 'as': 'dracula' }
-
 " Programing 
 Plug 'nathanaelkane/vim-indent-guides'
 
