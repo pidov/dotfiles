@@ -30,16 +30,11 @@ set noswapfile
 set swapsync=""
 set ts=2 sw=2
 set number "relativenumber
-set cursorline
+"set cursorline
 set conceallevel=1
 set scrolloff=10
 set termguicolors
 "set modifiable
-
-" Theme
-colorscheme dracula
-hi! link IndentGuidesEven DraculaBgDarker
-hi! link IndentGuidesOdd DraculaBgDark
 
 syntax enable
 
