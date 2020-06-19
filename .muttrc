@@ -1,6 +1,6 @@
 folder-hook 'account.com.outlook.ivan.pidov' 'source ~/.mutt/account.com.outlook.ivan.pidov'
 
-source ~/.config/theme/dracula.muttrc
+# source ~/.config/theme/dracula.muttrc
 
 # Default account
 source ~/.mutt/account.com.outlook.ivan.pidov
