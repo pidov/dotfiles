@@ -187,10 +187,10 @@ bar-indicator-foreground = #fff
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
-bar-fill-foreground = ${colors.primary}
+bar-fill-foreground = #fff
 bar-empty = ─
 bar-empty-font = 2
-bar-empty-foreground = #fff
+bar-empty-foreground = ${colors.background-alt}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
