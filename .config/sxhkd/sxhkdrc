@@ -6,12 +6,28 @@
 super + Return
   xterm
 
+XF86MonBrightnessUp 
+  xbacklight -inc 10; notify-send 'brightness up'
+XF86MonBrightnessDown 
+  xbacklight -dec 10; notify-send 'brightness down'
+
+XF86AudioLowerVolume
+  amixer set Master 5%-
+   
+XF86AudioRaiseVolume
+  amixer set Master 5%+
+
+XF86AudioMute
+  amixer set Master toggle
+
 # program launcher
 super + d
 	rofi --show combi
 
 super + F2
 	qutebrowser
+
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
