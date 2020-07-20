@@ -4,3 +4,5 @@
 [alias]
 	co = checkout
 	ci = commit
+[core]
+	editor = vim
