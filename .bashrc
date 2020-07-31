@@ -9,12 +9,11 @@
 export PATH=$PATH:/Users/ipidov/bin
 export NVM_DIR="$HOME/.nvm"
 
-function nonzero_return() {
-	RETVAL=$?
-	[ $RETVAL -ne 0 ] && echo " You fucked up $RETVAL"
-}
-
-PS1='\u@\H \W \$\[\e[31m\]$(nonzero_return)\[\e[m\] '
+BLUE='\[\033[38;5;109m\]'
+YELLOW='\[\033[38;5;214m\]'
+GREEN='\[\033[38;5;142m\]'
+RESET='\[$(tput sgr0)\]'
+export PS1="${GREEN}\u${RESET}@${YELLOW}\h${RESET} ${BLUE}\w${RESET}\n → ${RESET}"
 
 # Aliases
 alias ls='ls --color=auto'
