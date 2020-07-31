@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  xterm
+  alacritty
 
 XF86MonBrightnessUp 
   xbacklight -inc 10; notify-send 'brightness up'
@@ -22,11 +22,16 @@ XF86AudioMute
 
 # program launcher
 super + d
-	rofi --show combi
+	rofi -show combi
 
 super + F2
 	qutebrowser
+ 
+super + space
+	code 
 
+super + x
+	xkill
 
 # make sxhkd reload its configuration files:
 super + Escape
