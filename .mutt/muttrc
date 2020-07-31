@@ -1,0 +1,43 @@
+# vim: filetype=muttrc
+
+source ~/.mutt/settings
+source ~/.mutt/colors
+source ~/.mutt/sidebar
+
+source ~/.mutt/accounts/business
+#source ~/.mutt/accounts/personal
+
+
+folder-hook 'account.com.outlook.ivan.pidov' 'source ~/.mutt/account.com.outlook.ivan.pidov'
+folder-hook 'account.com.gmail.ivan.pidov' 'source ~/.mutt/account.com.gmail.ivan.pidov'
+
+
+# Default account
+
+#source ~/.mutt/account.com.outlook.ivan.pidov
+#source ~/.mutt/account.com.gmail.ivan.pidov
+
+
+# PATHS ------------------------------------
+
+set header_cache="~/.mutt/header_cache"
+
+# Fetch mail shortcut
+set new_mail_command="notify-send 'New email' '%n new messages, %u unread.' &"
+auto_view text/html
+alternative_order text/enriched text/plain text/html text
+
+
+bind index G imap-fetch-mail
+
+# UI 
+
+set mail_check_stats
+
+# mailboxes =INBOX
+# mailboxes =mailbox/archive =mailbox/sent =mailbox/drafts =mailbox/junk =mailbox/trash
+
+# bind index,pager \CP sidebar-prev       # Ctrl-Shift-P - Previous Mailbox
+# bind index,pager \CN sidebar-next       # Ctrl-Shift-N - Next Mailbox
+# bind index,pager \CO sidebar-open       # Ctrl-Shift-O - Open Highlighted Mailbox
+
