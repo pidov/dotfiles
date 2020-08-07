@@ -18,14 +18,11 @@ export PS1="${GREEN}\u${RESET}@${YELLOW}\h${RESET} ${BLUE}\w${RESET}\n → ${RES
 # Aliases
 alias ls='ls --color=auto'
 alias cal='cal --monday'
+alias tmux='TERM=screen-256color-bce tmux'
 
 # Load nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# Keyboard mappings
-setxkbmap -option caps:swapescape
-setxkbmap -option 'grp:alt_shift_toggle' -layout us,bg -variant ,phonetic
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   exec startx

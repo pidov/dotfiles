@@ -1,0 +1,51 @@
+#!/bin/bash
+
+#BUG lazyness: switching from dock to dock is unsupported (aux's windows will get dumped)
+
+num_s=1
+desktops=(WORK WEB MEDIA GAMES AUX)
+declare -A modes=(
+    [DOCK]='--output LVDS1 --mode 1280x800 --output VGA1 --mode 1280x1024 --rotate left --primary --left-of LVDS1'
+    [DOCK2]='--output LVDS1 --mode 1280x800 --primary --output VGA1 --mode 1280x1024 --rotate left --left-of LVDS1'
+    [LVDS1]='--output LVDS1 --mode 1280x800 --primary --output VGA1 --off'
+    [VGA1]='--output VGA1 --mode 1280x1024 --rotate left --primary --output LVDS1 --off'
+)
+
+salvage_desks(){
+    local m d
+    m="$1"; shift
+    for d in $*; do
+        bspc desktop "$d" -m "$m" 2>/dev/null
+    done
+    temp_desk="$(bspc query -D -m "$m" -d "Desktop" 2>/dev/null)" && bspc desktop "$temp_desk" -r
+    bspc monitor "$m" -o $* 2>/dev/null
+}
+
+fdesk="$(bspc query -D -d)"
+mode="$1"
+if [[ -z "$mode" ]]; then
+    mapfile -t monitors < \
+        <(xrandr | awk '/ connected / {print $1}')
+    if [[ ${#monitors[@]} == 2 ]]; then
+        mode=DOCK
+    else
+        mode=${monitors[0]}
+    fi
+fi
+if [[ -n "${modes[$mode]}" ]]; then
+    xrandr ${modes[$mode]}
+else
+    exit 1
+fi
+p="$(bspc query -M -m primary)"
+s="$(grep -xvm1 "$p" < <(bspc query -M))"
+if [[ -n "$s" ]]; then
+    s_desktops=(${desktops[@]: -${num_s}})
+    desktops=(${desktops[@]::${#desktops[@]}-${num_s}})
+	salvage_desks "$s" ${s_desktops[@]}
+fi
+salvage_desks "$p" ${desktops[@]}
+bspc monitor "$p" -d ${desktops[@]}
+[[ -n "$s" ]] && bspc monitor "$s" -d ${s_desktops[@]}
+# sleep because focus will fail (but bspwm will exit code 0) occasionally. race condition.
+sleep 0.1; bspc desktop "$fdesk" -f >/dev/null

@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  alacritty
+  alacritty -e tmux
 
 XF86MonBrightnessUp 
   xbacklight -inc 10; notify-send 'brightness up'
