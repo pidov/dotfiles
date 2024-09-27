@@ -5,27 +5,23 @@ call plug#begin('~/.vim/plugged')
 " Base
 "Plug 'scrooloose/nerdtree'
 
-" Theme
-Plug 'dracula/vim', { 'as': 'dracula' }
-
 " Programing 
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " TypeScript
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
-Plug 'Shougo/vimproc.vim', {'do' : 'make'} " tsuquyomi dependency
-Plug 'Quramy/tsuquyomi'
-
 call plug#end()
 
 " Base
+set encoding=utf8
 set nocompatible
 set nobackup
 set nowritebackup
@@ -33,17 +29,12 @@ set noswapfile
 set swapsync=""
 set ts=2 sw=2
 set number "relativenumber
-set cursorline
+"set cursorline
 set conceallevel=1
 set scrolloff=10
-set termguicolors
+"set termguicolors
 "set modifiable
-
-" Theme
-colorscheme dracula
-hi! link IndentGuidesEven DraculaBgDarker
-hi! link IndentGuidesOdd DraculaBgDark
-
+set fillchars=vert:\|
 syntax enable
 
 filetype plugin on
@@ -51,11 +42,18 @@ filetype plugin on
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 
+let g:coc_global_extenssions = [
+  \ 'coc-tsserver'
+	\ ]
+
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = -25
+
+highlight VertSplit cterm=NONE ctermfg=28 ctermbg=NONE
+highlight SignColumn cterm=NONE ctermbg=NONE
 
 augroup ProjectDrawer
   autocmd!

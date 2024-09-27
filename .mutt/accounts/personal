@@ -1,0 +1,25 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set ssl_use_sslv3=yes
+
+set from = "ivan.pidov@gmail.com"
+set realname = "Ivan Pidov"
+
+set smtp_url = "smtp://ivan.pidov@smtp.gmail.com:587/"
+
+set imap_user = "ivan.pidov@tick42.com"
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+
+set mail_check = 5
+set move = no
+set imap_keepalive = 900
+
+#sorting
+set sort = threads
+set sort_aux=reverse-date-received
+
+set editor = "vim"
+
+set date_format="%d-%m-%y %T"
